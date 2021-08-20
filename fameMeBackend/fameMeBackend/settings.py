@@ -20,12 +20,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = None
+SECRET_KEY = 'ox$q%s*s*v=0hu550qroty&w1sea1h=en=&-beu%(i!oq6^sv2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = None
+ALLOWED_HOSTS = [
+    "95.79.32.62",
+    "192.168.0.107",
+    "127.0.0.1"
+]
 
 
 # Application definition
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'rest_framework',
     'desktop',
     'android'
@@ -76,7 +81,16 @@ WSGI_APPLICATION = 'fameMeBackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = None
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fame_me',
+        'USER': 'postgres',
+        'PASSWORD': 'b4hxd6u7',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
@@ -97,6 +111,26 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+  'social_core.backends.instagram.InstagramOAuth2',
+  'social_core.backends.vk.VKOAuth2',
+  'django.contrib.auth.backends.ModelBackend',
+]
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '7931760'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'X15pXHqxl6hCmQIqHeAP'
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.10'
+SOCIAL_AUTH_INSTAGRAM_KEY = "162341026033011"
+SOCIAL_AUTH_INSTAGRAM_SECRET = "d045ead6d5e57430a4c7189e2f6483fe"
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = [
+  'friends',
+  'email',
+]
+
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -109,7 +143,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
