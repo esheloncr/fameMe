@@ -46,6 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     followers = models.PositiveIntegerField("Подписчики", default=0)
     event_counter = models.PositiveIntegerField(null=True, default=0)
     email = models.EmailField(unique=False, default="none@gmail.com")
+    rating = models.PositiveIntegerField(default=0, blank=True)
 
     objects = UserManager()
     USERNAME_FIELD = "user_login"
@@ -81,28 +82,6 @@ class Event(models.Model):
     comments = models.ManyToManyField("Comment", null=True, blank=True)
     participant = models.ManyToManyField(User, null=True, blank=True, related_name="participants")
 
-
-
-    def add_like(self, user_id):
-        user = User.objects.get(pk=user_id)
-        print(user)
-        if user in self.liked_by.all():
-            print(1)
-            self.update(like=self.like - 1)
-            if self.like < 0:
-                self.update(like=0)
-            self.liked_by.remove(user)
-            return
-        else:
-            self.update(like=self.like + 1)
-            self.liked_by.add(user)
-            return
-        """if user in obj.liked_by.all():
-            obj.liked_by.remove(user)
-            print("removed")
-        else:
-            obj.liked_by.add(user)
-            print("success")"""
 
 class Comment(models.Model):
     message = models.CharField(max_length=255, verbose_name="Текст комментария")

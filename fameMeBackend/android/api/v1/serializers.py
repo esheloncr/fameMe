@@ -13,7 +13,17 @@ class ProfileSerializer(serializers.ModelSerializer):
         ]
 
 
+class CommentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = [
+            "message"
+        ]
+
+
 class EventSerializer(serializers.ModelSerializer):
+    comments = CommentsSerializer(read_only=True, many=True)
+
     class Meta:
         model = Event
         fields = [
@@ -31,4 +41,15 @@ class EventCreateSerializer(serializers.ModelSerializer):
         fields = [
             'author',
             'description'
+        ]
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            "user_login",
+            "first_name",
+            "last_name",
+            "rating"
         ]

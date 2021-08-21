@@ -5,15 +5,47 @@
     <title>dev</title>
 </head>
 <body>
-{{ events.author }} <br>
-{{ events.description }} <br>
-{{ events.like }} <br>
-<p>Liked by:</p>
-{% for l in events.liked_by.all %}
-{{ l }} <br>
-{% endfor %}
-{% for c in events.comments.all %}
-<p>{{ c }}</p>
-{% endfor %}
+<div>
+    <button>
+        <a href="{% url 'vk' %}">VK</a>
+    </button>
+</div>
+<div>
+    <h2>Мероприятия</h2>
+    {% for e in events.all %}
+    <p>Автор: {{ e.author }}</p>
+    <p>Описание: {{ e.description }}</p>
+    <p>Лайки: {{ e.like }}</p>
+    {% if not i.liked_by.count %}
+    <p>Ещё никому не понравилось</p>
+    {% else %}
+    <p>Понравилось: {{ e.liked_by }}</p>
+    {% endif %}
+    <p>Комм {{ e.comments.all }}</p>
+    {% if not e.comments.count %}
+    <p>Ещё нет комментариев</p>
+    {% else %}
+    <p>Комментарии: {{ e.comments }}</p>
+    {% endif %}
+    {% if not i.participant %}
+    <p>Ещё нет участников</p>
+    {% else %}
+    <p>Участники: {{ e.participant }}</p>
+    {% endif %}
+    <h2>Следующее мероприятие</h2>
+    {% endfor %}
+</div>
+<div>
+    <h2>Комментарии</h2>
+    {% for c in comments.all %}
+    <p>{{ c }}</p>
+    {% endfor %}
+</div>
+<div>
+    <h2>Пользователи</h2>
+    {% for u in users.all %}
+    <p>{{ u }}</p>
+    {% endfor %}
+</div>
 </body>
 </html>

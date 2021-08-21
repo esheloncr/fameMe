@@ -124,6 +124,7 @@ SOCIAL_AUTH_VK_OAUTH2_SECRET = 'X15pXHqxl6hCmQIqHeAP'
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.10'
 SOCIAL_AUTH_INSTAGRAM_KEY = "162341026033011"
 SOCIAL_AUTH_INSTAGRAM_SECRET = "d045ead6d5e57430a4c7189e2f6483fe"
+SOCIAL_AUTH_INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'fields': ''}
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = [
   'notify',
   'friends',
@@ -131,9 +132,20 @@ SOCIAL_AUTH_VK_OAUTH2_SCOPE = [
 ]
 
 LOGIN_URL = '/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'dev'
 LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'dev'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
