@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'social_django',
     'rest_framework',
     'desktop',
-    'android'
 ]
 
 MIDDLEWARE = [
@@ -111,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = "android.User"
+AUTH_USER_MODEL = "desktop.User"
 
 AUTHENTICATION_BACKENDS = [
   'social_core.backends.instagram.InstagramOAuth2',
