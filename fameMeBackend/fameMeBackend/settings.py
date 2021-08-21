@@ -111,6 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "android.User"
+
 AUTHENTICATION_BACKENDS = [
   'social_core.backends.instagram.InstagramOAuth2',
   'social_core.backends.vk.VKOAuth2',
@@ -123,6 +125,7 @@ SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.10'
 SOCIAL_AUTH_INSTAGRAM_KEY = "162341026033011"
 SOCIAL_AUTH_INSTAGRAM_SECRET = "d045ead6d5e57430a4c7189e2f6483fe"
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = [
+  'notify',
   'friends',
   'email',
 ]
