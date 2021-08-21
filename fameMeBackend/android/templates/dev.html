@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dev</title>
+</head>
+<body>
+{{ events.author }} <br>
+{{ events.description }} <br>
+{{ events.like }} <br>
+<p>Liked by:</p>
+{% for l in events.liked_by.all %}
+{{ l }} <br>
+{% endfor %}
+{% for c in events.comments.all %}
+<p>{{ c }}</p>
+{% endfor %}
+</body>
+</html>
