@@ -81,6 +81,8 @@ class Event(models.Model):
     liked_by = models.ManyToManyField(User, null=True, blank=True, related_name="liked")
     comments = models.ManyToManyField("Comment", null=True, blank=True)
     participant = models.ManyToManyField(User, null=True, blank=True, related_name="participants")
+    price = models.PositiveIntegerField(blank=True, default=0)
+    datetime = models.DateTimeField(blank=True, null=True)
 
 
 class Comment(models.Model):

@@ -11,4 +11,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('doc/', include_docs_urls(title='API', authentication_classes=[], permission_classes=[],
                                    generator_class=CoreAPISchemaGenerator)),
+    path('', include('desktop.urls'))
 ]
