@@ -9,11 +9,20 @@
 }
 
 .u-section-1 .u-text-1 {
-  font-weight: 700;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  line-height: 50px;
+  font-size: 48px;
+  font-style: normal;
   margin: -268px 690px 0 26px;
 }
 
 .u-section-1 .u-text-2 {
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  line-height: 37px;
+  font-size: 32px;
+  font-style: normal;
   margin: 8px auto 60px 26px;
 }
 
@@ -84,7 +93,7 @@
   border-style: solid;
   font-size: 0.9375rem;
   letter-spacing: 0px;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   background-image: none;
   margin: -48px 280px 0 auto;
@@ -176,32 +185,38 @@
 }
 
 .u-section-3 .u-text-1 {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
   margin: -56px auto 0 332px;
 }
 
 .u-section-3 .u-text-2 {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
   margin: 0 auto 0 332px;
 }
 
 .u-section-3 .u-text-3 {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
   margin: -50px auto 0 449px;
 }
 
 .u-section-3 .u-text-4 {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
   margin: 0 auto;
 }
 
 .u-section-3 .u-text-5 {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
   margin: -50px 413px 0 auto;
 }
 
 .u-section-3 .u-text-6 {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
   margin: 0 373px 0 auto;
 }
 
@@ -224,13 +239,16 @@
 }
 
 .u-section-3 .u-text-7 {
-  font-size: 1.5rem;
-  font-family: Inter;
+  font-size: 24px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
   margin: -52px auto 0 62px;
 }
 
 .u-section-3 .u-text-8 {
-  font-family: Inter;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
   margin: -7px auto 0 65px;
 }
 

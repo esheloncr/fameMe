@@ -10,4 +10,13 @@ def index(request):
 
 def bloggers(request):
     data = User.objects.filter(is_blogger=True)
+    for i in data:
+        try:
+            print(i.profile_photo.image.url)
+        except:
+            pass
     return render(request, "second_page.html", context={"bloggers": data})
+
+
+def video_chat(request):
+    return render(request, "third_page.html")

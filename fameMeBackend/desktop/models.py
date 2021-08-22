@@ -46,7 +46,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     followers = models.PositiveIntegerField("Подписчики", default=0)
     event_counter = models.PositiveIntegerField(null=True, default=0)
     email = models.EmailField(unique=False, default="none@gmail.com")
-    rating = models.PositiveIntegerField(default=0, blank=True)
+    rating = models.FloatField(default=0, blank=True)
+    profile_photo = models.ForeignKey("Image", on_delete=models.CASCADE, null=True, blank=True)
 
     objects = UserManager()
     USERNAME_FIELD = "user_login"
@@ -74,6 +75,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         return '{} {}'.format(self.first_name, self.last_name)
 
 
+class Image(models.Model):
+    image = models.ImageField(upload_to="static/img/db/", blank=True, null=True)
+
+
 class Event(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.CharField(max_length=255, verbose_name="Описание мероприятия")
@@ -83,6 +88,7 @@ class Event(models.Model):
     participant = models.ManyToManyField(User, null=True, blank=True, related_name="participants")
     price = models.PositiveIntegerField(blank=True, default=0)
     datetime = models.DateTimeField(blank=True, null=True)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True)
 
 
 class Comment(models.Model):

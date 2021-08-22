@@ -13,3 +13,4 @@ urlpatterns = [
                                    generator_class=CoreAPISchemaGenerator)),
     path('', include('desktop.urls'))
 ]
+

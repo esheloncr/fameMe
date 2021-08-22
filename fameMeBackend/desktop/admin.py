@@ -1,6 +1,13 @@
 from django.contrib import admin
-from .models import Event, Comment, User
+from .models import Event, Comment, User, Image
 # Register your models here.
+
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    list_display = [
+        "image"
+    ]
 
 
 @admin.register(User)
